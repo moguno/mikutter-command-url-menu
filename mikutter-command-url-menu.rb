@@ -13,7 +13,7 @@ Plugin.create(:"mikutter-command-url-menu") {
   end
 
   command(:url_menu,
-          :name => _("URLメニューを出す"),
+          :name => _("URLメニューを表示"),
           :condition => lambda { |opt| 
             Plugin::Command[:HasMessage] &&
             opt.messages.first[:entities] &&
