@@ -25,7 +25,7 @@ Plugin.create(:"mikutter-command-url-menu") {
 
             item = Gtk::MenuItem.new("【#{params[:header]}】#{url[:expanded_url]}")
 
-            item.ssc(:button_press_event) { |w, e|
+            item.ssc(:activate) { |w, e|
               Gtk::openurl(url[:expanded_url])
               menu.destroy
             }
