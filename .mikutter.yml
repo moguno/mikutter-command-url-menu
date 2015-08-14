@@ -5,7 +5,7 @@ depends:
   plugin:
   - command
   - gtk
-version: '0.0.2'
+version: '0.0.3'
 author: 
 name: mikutter-command-url-menu
 description: メッセージ中のURLをクリックしやすくするメニューを表示します。
