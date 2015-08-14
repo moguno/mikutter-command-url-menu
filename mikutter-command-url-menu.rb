@@ -16,7 +16,7 @@ Plugin.create(:"mikutter-command-url-menu") {
           :name => _("URLメニューを表示"),
           :condition => lambda { |opt| 
             Plugin::Command[:HasMessage] &&
-            opt.messages.first[:entities] &&
+            opt.messages.first &&
             [
               [ :entities, :urls ],
               [ :entities, :media ],
@@ -62,8 +62,14 @@ Plugin.create(:"mikutter-command-url-menu") {
         end
 
         if menu
-          menu.show_all
-          menu.popup(nil, nil, 3, 0)
+          Thread.new {
+            sleep(0.1)
+          }.next { |_|
+            Delayer.new {
+              menu.show_all
+              menu.popup(nil, nil, 0, 0)
+            }
+          }
         end
       }
     rescue => e
